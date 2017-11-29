@@ -21,6 +21,10 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
 var DemoController = function($interval) {
   var vm = this;
 
+  vm.showAlert = function () {
+    console.log('showing');
+  };
+
   var autoCounter = function(index, start, steps, delay) {
     var numIterations = 0;
     vm.autoPending[index] = start;

@@ -1,5 +1,12 @@
 <div class="angular-notifications-container">
-    <div class="angular-notifications-icon overlay" ng-show="notification.visible"><div ng-hide="notification.hideCount">{{notification.count}}</div></div>
+    <div ng-if="!notification.attachAlertModal" class="angular-notifications-icon overlay" ng-show="notification.visible"><div ng-hide="notification.hideCount">{{notification.count}}</div></div>
+    <div ng-if="notification.attachAlertModal" edit-alert edit-alert-refresh="notification.alertModalOptions.editAlertRefresh()"
+        edit-alert-table-name="notification.alertModalOptions.editAlertTableName"
+        edit-alert-table-id="notification.alertModalOptions.editAlertTableId"
+        class="angular-notifications-icon overlay" ng-show="notification.visible">
+        {{test}}
+      <div ng-hide="notification.hideCount">{{notification.count}}</div>
+    </div>
     <div class="notification-inner">
         <ng-transclude></ng-transclude>
     </div>

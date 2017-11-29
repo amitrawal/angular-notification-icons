@@ -97,7 +97,9 @@ var notificationDirective = function() {
       disappearAnimation: '@',
       updateAnimation: '@',
       clearTrigger: '@',
-      wideThreshold: '@'
+      wideThreshold: '@',
+      attachAlertModal: '=',
+      alertModalOptions: '='
     },
     controller: 'NotificationDirectiveController',
     controllerAs: 'notification',
@@ -105,6 +107,7 @@ var notificationDirective = function() {
     transclude: true,
     templateUrl: 'template/notification-icon.html',
     link: function(scope, element, attrs, ctrl) {
+      console.log(scope);
       ctrl.init(element);
     }
   };

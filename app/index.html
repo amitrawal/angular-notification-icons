@@ -32,16 +32,16 @@
         <h2>Getting Started</h2>
         <div class="row">
           <div class="col-md-2">
-            <notification-icon count='vm.autoPending[0]'>
+            <notification-icon attach-alert-modal="true" alert-modal-options="{editAlertTableName: 'someName', editAlertRefresh: vm.showAlert }" count='vm.autoPending[0]'>
               <i class="fa fa-envelope-o fa-3x"></i>
             </notification-icon>
           </div>
         </div>
 
         <div hljs>
-<notification-icon count='vm.autoPending[0]'>
-  <i class="fa fa-envelope-o fa-3x"></i>
-</notification-icon>
+          <notification-icon count='vm.autoPending[0]'>
+            <i class="fa fa-envelope-o fa-3x"></i>
+          </notification-icon>
         </div>
         <hr>
       </div>
@@ -280,7 +280,7 @@ angular.module('MyApp', ['angular-notification-icons']);
         </div>
       </div>
     </div>
-    
+
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->
     <!-- endbower -->
