@@ -12,7 +12,7 @@
 angular.module('angular-notification-icons', ['angular-notification-icons.tpls']);
 angular.module('angular-notification-icons.tpls', []);
 
-angular.module("angular-notification-icons.tpls").run(["$templateCache", function($templateCache) {$templateCache.put("template/notification-icon.html","<div class=\"angular-notifications-container\">\n    <div class=\"angular-notifications-icon overlay\" ng-show=\"notification.visible\"><div ng-hide=\"notification.hideCount\">{{notification.count}}</div></div>\n    <div class=\"notification-inner\">\n        <ng-transclude></ng-transclude>\n    </div>\n</div>");}]);
+angular.module("angular-notification-icons.tpls").run(["$templateCache", function($templateCache) {$templateCache.put("template/notification-icon.html","<div class=\"angular-notifications-container\">\n    <div ng-if=\"!notification.attachAlertModal\" class=\"angular-notifications-icon overlay\" ng-show=\"notification.visible\"><div ng-hide=\"notification.hideCount\">{{notification.count}}</div></div>\n    <div ng-if=\"notification.attachAlertModal\" edit-alert edit-alert-refresh=\"notification.alertModalOptions.editAlertRefresh()\"\n        edit-alert-table-name=\"notification.alertModalOptions.editAlertTableName\"\n        edit-alert-table-id=\"notification.alertModalOptions.editAlertTableId\"\n        class=\"angular-notifications-icon overlay\" ng-show=\"notification.visible\">\n        {{test}}\n      <div ng-hide=\"notification.hideCount\">{{notification.count}}</div>\n    </div>\n    <div class=\"notification-inner\">\n        <ng-transclude></ng-transclude>\n    </div>\n</div>\n");}]);
 /* global angular */
 
 'use strict';
@@ -112,7 +112,9 @@ var notificationDirective = function() {
       disappearAnimation: '@',
       updateAnimation: '@',
       clearTrigger: '@',
-      wideThreshold: '@'
+      wideThreshold: '@',
+      attachAlertModal: '=',
+      alertModalOptions: '='
     },
     controller: 'NotificationDirectiveController',
     controllerAs: 'notification',
@@ -120,6 +122,7 @@ var notificationDirective = function() {
     transclude: true,
     templateUrl: 'template/notification-icon.html',
     link: function(scope, element, attrs, ctrl) {
+      console.log(scope);
       ctrl.init(element);
     }
   };
